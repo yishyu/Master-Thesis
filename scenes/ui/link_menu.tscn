@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl38qfnrsrvim"]
+
+[ext_resource type="Script" path="res://scenes/ui/scripts/link_menu.gd" id="1_7djgh"]
+[ext_resource type="Theme" uid="uid://2ie5rdx6yjrm" path="res://themes/link_menu.tres" id="2_se50n"]
+
+[node name="LinkMenu" type="CanvasLayer"]
+script = ExtResource("1_7djgh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1600, 960)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.439216)
+
+[node name="Container" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(1600, 960)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -752.0
+offset_bottom = -448.0
+
+[node name="LinkID" type="Label" parent="Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 55
+text = "Link #129"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="AddRuleButton" type="Button" parent="Container"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_se50n")
+text = "+ Add rule"
+
+[connection signal="pressed" from="Container/AddRuleButton" to="." method="_on_add_rule_button_pressed"]

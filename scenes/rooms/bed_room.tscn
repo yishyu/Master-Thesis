@@ -1,0 +1,93 @@
+[gd_scene load_steps=13 format=3 uid="uid://dy13173lt1itu"]
+
+[ext_resource type="Texture2D" uid="uid://cmfc00nvu7ouo" path="res://assets/textures/seamless-wood-planks-3-354038619.jpg" id="1_d1ydn"]
+[ext_resource type="Material" uid="uid://iymqpvr4js8t" path="res://materials/roomwalls.tres" id="2_gjfpx"]
+[ext_resource type="PackedScene" uid="uid://digt5a3q2nf0c" path="res://scenes/instances/furniture.tscn" id="3_rogr6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bspg2"]
+albedo_texture = ExtResource("1_d1ydn")
+uv1_scale = Vector3(20, 20, 20)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_grttl"]
+size = Vector2(0.25, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lo6km"]
+albedo_texture = ExtResource("1_d1ydn")
+uv1_scale = Vector3(20, 20, 20)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_tmjb4"]
+size = Vector2(0.15, 0.15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_b5ffp"]
+size = Vector2(0.25, 0.1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qerd6"]
+size = Vector2(0.1, 0.3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wy63e"]
+size = Vector2(0.1, 0.15)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3jhvx"]
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_llqua"]
+size = Vector2(0.15, 0.1)
+
+[node name="BedRoom2" type="Node3D"]
+
+[node name="Floor1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.07532)
+material_override = SubResource("StandardMaterial3D_bspg2")
+mesh = SubResource("PlaneMesh_grttl")
+
+[node name="Floor2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0501788, 1.49012e-08, 0.074752)
+material_override = SubResource("StandardMaterial3D_lo6km")
+mesh = SubResource("PlaneMesh_tmjb4")
+
+[node name="Wall1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.05, -0.15032)
+material_override = ExtResource("2_gjfpx")
+mesh = SubResource("PlaneMesh_b5ffp")
+
+[node name="Wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.125, 0.05, -0.000319988)
+material_override = ExtResource("2_gjfpx")
+mesh = SubResource("PlaneMesh_qerd6")
+
+[node name="Wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.125233, 0.05, -0.07532)
+material_override = ExtResource("2_gjfpx")
+mesh = SubResource("PlaneMesh_wy63e")
+
+[node name="Wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.025, 0.05, 0.07468)
+material_override = ExtResource("2_gjfpx")
+mesh = SubResource("PlaneMesh_wy63e")
+
+[node name="Wall5" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.075, 0.05, -0.000319988)
+material_override = ExtResource("2_gjfpx")
+mesh = SubResource("PlaneMesh_3jhvx")
+
+[node name="Wall6" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.05, 0.05, 0.14968)
+material_override = ExtResource("2_gjfpx")
+mesh = SubResource("PlaneMesh_llqua")
+
+[node name="Bed" parent="." instance=ExtResource("3_rogr6")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, 0.0484303, 0, 0.120793)
+object_file = "res://assets/models/bed/Bed.glb"
+device_name = "Bed"
+
+[node name="Dresser" parent="." instance=ExtResource("3_rogr6")]
+transform = Transform3D(-0.025, 0, 2.18557e-09, 0, 0.025, 0, -2.18557e-09, 0, -0.025, -0.00827794, 0, 0.137391)
+object_file = "res://assets/models/dresser/Dresser.glb"
+device_name = "Dresser"
+
+[node name="Lamp" parent="." instance=ExtResource("3_rogr6")]
+transform = Transform3D(0.025, 0, 0, 0, 0.025, 0, 0, 0, 0.025, -0.008, 0.035, 0.137)
+object_file = "res://assets/devices/reading_light/reading_light.glb"
+device_name = "Reading light"

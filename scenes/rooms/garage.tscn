@@ -1,0 +1,82 @@
+[gd_scene load_steps=18 format=3 uid="uid://car747d7bnpcj"]
+
+[ext_resource type="Texture2D" uid="uid://cy3dbe2r3duhy" path="res://assets/textures/TCom_Paint_Chipped_1K_albedo.jpg" id="1_2ve6r"]
+[ext_resource type="Texture2D" uid="uid://16pnrg7ohvmh" path="res://assets/textures/TCom_Paint_Chipped_1K_normal.jpg" id="2_8y7fk"]
+[ext_resource type="Texture2D" uid="uid://d34y6rkn60erb" path="res://assets/textures/TCom_Paint_Chipped_1K_roughness.jpg" id="3_wwbdk"]
+[ext_resource type="PackedScene" uid="uid://x7kjqp4lj6m1" path="res://assets/models/car/Car.glb" id="4_gogpf"]
+[ext_resource type="Texture2D" uid="uid://dikn0an2r0hwh" path="res://assets/textures/red_plaster_weathered_diff_1k.jpg" id="5_n8esa"]
+[ext_resource type="Texture2D" uid="uid://3bhgwx4ihd3g" path="res://assets/textures/shutter/rusted_shutter_diff_1k.jpg" id="6_p84h6"]
+[ext_resource type="Texture2D" uid="uid://ne0lwdf3gbiw" path="res://assets/textures/shutter/rusted_shutter_nor_gl_1k.png" id="7_thpjj"]
+[ext_resource type="Texture2D" uid="uid://b3mhr2hjy0xwx" path="res://assets/textures/shutter/rusted_shutter_rough_1k.png" id="8_j4r4t"]
+[ext_resource type="PackedScene" uid="uid://digt5a3q2nf0c" path="res://scenes/instances/furniture.tscn" id="9_uu4t5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcrhd"]
+albedo_texture = ExtResource("1_2ve6r")
+roughness_texture = ExtResource("3_wwbdk")
+roughness_texture_channel = 4
+normal_enabled = true
+normal_texture = ExtResource("2_8y7fk")
+uv1_scale = Vector3(10, 10, 10)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_g8u4w"]
+material = SubResource("StandardMaterial3D_qcrhd")
+size = Vector2(0.1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qsa50"]
+albedo_texture = ExtResource("5_n8esa")
+uv1_scale = Vector3(10, 10, 10)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_iecl5"]
+size = Vector2(0.1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76q3j"]
+albedo_texture = ExtResource("5_n8esa")
+uv1_scale = Vector3(10, 10, 10)
+uv1_triplanar = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x8tyo"]
+size = Vector2(0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joyq2"]
+albedo_texture = ExtResource("6_p84h6")
+roughness_texture = ExtResource("8_j4r4t")
+normal_enabled = true
+normal_texture = ExtResource("7_thpjj")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_nt5ul"]
+size = Vector2(0.1, 0.1)
+
+[node name="Garage" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_g8u4w")
+
+[node name="Car2" parent="." instance=ExtResource("4_gogpf")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+
+[node name="Wall1" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.05, 0.05, 0)
+material_override = SubResource("StandardMaterial3D_qsa50")
+mesh = SubResource("PlaneMesh_iecl5")
+
+[node name="Wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.05, 0.05, 0)
+material_override = SubResource("StandardMaterial3D_qsa50")
+mesh = SubResource("PlaneMesh_iecl5")
+
+[node name="Wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.05, -0.1)
+material_override = SubResource("StandardMaterial3D_76q3j")
+mesh = SubResource("PlaneMesh_x8tyo")
+
+[node name="ShutterDoor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.05, 0.1)
+material_override = SubResource("StandardMaterial3D_joyq2")
+mesh = SubResource("PlaneMesh_nt5ul")
+
+[node name="Furniture" parent="." instance=ExtResource("9_uu4t5")]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0.08, 0)
+object_file = "res://assets/devices/ceiling_light/ceilingLamp.glb"
+device_name = "Ceiling light"

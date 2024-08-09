@@ -1,0 +1,128 @@
+[gd_scene load_steps=19 format=3 uid="uid://0bi6ynj4wn6f"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_2vb46"]
+[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_xmdcs"]
+[ext_resource type="PackedScene" uid="uid://njx823gyk04n" path="res://addons/godot-xr-tools/hands/scenes/highpoly/left_hand.tscn" id="3_nuame"]
+[ext_resource type="Script" path="res://scripts/hand_left.gd" id="3_nxjbi"]
+[ext_resource type="PackedScene" uid="uid://raeeicvvindd" path="res://addons/godot-xr-tools/hands/scenes/highpoly/right_hand.tscn" id="4_0u87h"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="5_i1825"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="6_m7jae"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="7_2xiht"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="7_c7ai4"]
+[ext_resource type="Script" path="res://scripts/hand_right.gd" id="7_vsn3s"]
+[ext_resource type="PackedScene" uid="uid://cdsqomnkl5hya" path="res://scenes/ui/hand_menu.tscn" id="11_u6t6g"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="12_ukhln"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="13_tnmf6"]
+[ext_resource type="PackedScene" uid="uid://digt5a3q2nf0c" path="res://scenes/instances/furniture.tscn" id="14_rj4fv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1j2rh"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_uyink"]
+sky_material = SubResource("ProceduralSkyMaterial_1j2rh")
+
+[sub_resource type="Environment" id="Environment_x8yaj"]
+background_mode = 2
+sky = SubResource("Sky_uyink")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o20o7"]
+size = Vector3(100, 0.1, 100)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_2vb46")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x8yaj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.999999, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shadow_enabled = true
+shadow_opacity = 0.4
+
+[node name="RoomContainer" type="Node3D" parent="."]
+unique_name_in_owner = true
+editor_description = "This node contains all the rooms that are spawn in the game"
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+current = true
+
+[node name="VRCommonShaderCache" parent="XROrigin3D/XRCamera3D" instance=ExtResource("2_xmdcs")]
+
+[node name="leftHand" type="XRController3D" parent="XROrigin3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+tracker = &"left_hand"
+script = ExtResource("3_nxjbi")
+
+[node name="Pointer" parent="XROrigin3D/leftHand" instance=ExtResource("5_i1825")]
+enabled = false
+collision_mask = 7340032
+
+[node name="MovementDirect" parent="XROrigin3D/leftHand" instance=ExtResource("6_m7jae")]
+strafe = true
+
+[node name="HandMenu" parent="XROrigin3D/leftHand" instance=ExtResource("12_ukhln")]
+unique_name_in_owner = true
+editor_description = "Menu that pops in the hand of the player when the a button is pressed on the left controller"
+transform = Transform3D(0.406737, -0.158636, 0.899667, 0, 0.984808, 0.173648, -0.913545, -0.0706291, 0.400557, 0, 0.12, 0)
+screen_size = Vector2(0.25, 0.2)
+collision_layer = 2097152
+scene = ExtResource("11_u6t6g")
+viewport_size = Vector2(1500, 1200)
+
+[node name="FunctionPickup" parent="XROrigin3D/leftHand" instance=ExtResource("13_tnmf6")]
+grab_collision_mask = 65536
+ranged_collision_mask = 65536
+
+[node name="LeftHandModel" parent="XROrigin3D/leftHand" instance=ExtResource("3_nuame")]
+
+[node name="rightHand" type="XRController3D" parent="XROrigin3D"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+tracker = &"right_hand"
+script = ExtResource("7_vsn3s")
+
+[node name="Pointer" parent="XROrigin3D/rightHand" instance=ExtResource("5_i1825")]
+laser_length = 1
+collision_mask = 7340032
+
+[node name="MovementTurn" parent="XROrigin3D/rightHand" instance=ExtResource("7_c7ai4")]
+
+[node name="FunctionPickup" parent="XROrigin3D/rightHand" instance=ExtResource("13_tnmf6")]
+grab_collision_mask = 65536
+ranged_collision_mask = 65536
+
+[node name="RightHandModel" parent="XROrigin3D/rightHand" instance=ExtResource("4_0u87h")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("7_2xiht")]
+collision_layer = 1
+collision_mask = 1
+push_rigid_bodies = false
+
+[node name="floor" type="StaticBody3D" parent="."]
+collision_layer = 1048577
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+shape = SubResource("BoxShape3D_o20o7")
+
+[node name="CeilingLamp" parent="." instance=ExtResource("14_rj4fv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 2.5, -1)
+object_file = "res://assets/devices/ceiling_light/ceilingLamp.glb"
+
+[connection signal="button_pressed" from="XROrigin3D/leftHand" to="." method="_on_left_hand_button_pressed"]
+[connection signal="button_pressed" from="XROrigin3D/leftHand" to="XROrigin3D/leftHand" method="_on_button_pressed"]
+[connection signal="switchdom" from="XROrigin3D/leftHand" to="." method="_on_left_hand_dom"]
+[connection signal="has_dropped" from="XROrigin3D/leftHand/FunctionPickup" to="." method="_on_left_hand_has_dropped"]
+[connection signal="has_picked_up" from="XROrigin3D/leftHand/FunctionPickup" to="." method="_on_left_hand_has_picked_up"]
+[connection signal="button_pressed" from="XROrigin3D/rightHand" to="XROrigin3D/rightHand" method="_on_button_pressed"]
+[connection signal="connection_creation" from="XROrigin3D/rightHand" to="." method="_on_create_link"]
+[connection signal="switchdom" from="XROrigin3D/rightHand" to="." method="_on_right_hand_dom"]
+[connection signal="has_dropped" from="XROrigin3D/rightHand/FunctionPickup" to="." method="_on_right_hand_has_dropped"]
+[connection signal="has_picked_up" from="XROrigin3D/rightHand/FunctionPickup" to="." method="_on_right_hand_has_picked_up"]

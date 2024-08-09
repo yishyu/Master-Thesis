@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4wh82cvb8kfe"]
+
+[ext_resource type="Script" path="res://scripts/detector.gd" id="1_0qdx4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnd0n"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0y3t"]
+resource_local_to_scene = true
+albedo_color = Color(0, 0.762011, 0.76201, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vsvap"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Detector" type="Area3D"]
+collision_layer = 0
+collision_mask = 131072
+script = ExtResource("1_0qdx4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_tnd0n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_s0y3t")
+mesh = SubResource("BoxMesh_vsvap")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

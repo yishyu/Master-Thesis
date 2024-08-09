@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dx8vxqukpxryu"]
+
+[ext_resource type="Script" path="res://scenes/ui/scripts/runtime_room_button_subview.gd" id="1_2l88r"]
+[ext_resource type="PackedScene" uid="uid://opo3m2jo63u2" path="res://scenes/icons/room_icon.tscn" id="2_ykrbt"]
+[ext_resource type="Theme" uid="uid://dow5nqcblqiil" path="res://themes/select_model.tres" id="4_s4wd3"]
+
+[node name="RuntimeRoomButtonSubview" type="VBoxContainer"]
+custom_minimum_size = Vector2(495, 495)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_2l88r")
+
+[node name="ViewContainer" type="SubViewportContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+stretch = true
+
+[node name="View" parent="ViewContainer" instance=ExtResource("2_ykrbt")]
+unique_name_in_owner = true
+own_world_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(495, 388)
+render_target_update_mode = 4
+
+[node name="Button" type="Button" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("4_s4wd3")
+text = "Living Room"

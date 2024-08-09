@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://digt5a3q2nf0c"]
+
+[ext_resource type="Script" path="res://scenes/instances/scripts/furniture.gd" id="1_swrhv"]
+[ext_resource type="PackedScene" uid="uid://658md8ydu16w" path="res://scenes/connection_ball.tscn" id="2_ngrl4"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="3_p58ps"]
+[ext_resource type="PackedScene" uid="uid://d4hivxhlltixg" path="res://scenes/ui/model_menu.tscn" id="4_ckjid"]
+
+[node name="Furniture" type="Node3D"]
+script = ExtResource("1_swrhv")
+
+[node name="SelectionBall" parent="." instance=ExtResource("2_ngrl4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="pivot" type="Node3D" parent="SelectionBall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+
+[node name="viewport" parent="SelectionBall/pivot" instance=ExtResource("3_p58ps")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+screen_size = Vector2(0.6, 0.9)
+collision_layer = 2097152
+scene = ExtResource("4_ckjid")
+viewport_size = Vector2(200, 300)
+
+[connection signal="gets_selected" from="SelectionBall" to="." method="_on_selected"]

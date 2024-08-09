@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cya3q2odupcod"]
+
+[ext_resource type="Script" path="res://scenes/icons/scripts/furniture_icon.gd" id="1_yerhc"]
+
+[node name="Icon" type="SubViewport"]
+script = ExtResource("1_yerhc")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1.5, 1.5)
+fov = 90.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 1, 1)

@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://bdfc3fx2ywudy"]
+
+[ext_resource type="Texture2D" uid="uid://cmfc00nvu7ouo" path="res://assets/textures/seamless-wood-planks-3-354038619.jpg" id="1_f4uq0"]
+[ext_resource type="Texture2D" uid="uid://dikn0an2r0hwh" path="res://assets/textures/red_plaster_weathered_diff_1k.jpg" id="2_8t3bx"]
+[ext_resource type="PackedScene" uid="uid://8c5tmvd5mxg4" path="res://assets/models/desk/DeskProject.tscn" id="3_fllo0"]
+[ext_resource type="PackedScene" uid="uid://blbnqadd31x8t" path="res://assets/models/chair/Office Chair.glb" id="4_e4dq1"]
+[ext_resource type="PackedScene" uid="uid://digt5a3q2nf0c" path="res://scenes/instances/furniture.tscn" id="5_uav6t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3rq78"]
+albedo_texture = ExtResource("1_f4uq0")
+uv1_scale = Vector3(5, 5, 5)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p5go4"]
+size = Vector2(0.3, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5q6v"]
+albedo_texture = ExtResource("2_8t3bx")
+uv1_scale = Vector3(4, 4, 4)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_ep8tc"]
+size = Vector2(0.1, 0.2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lw2h8"]
+albedo_texture = ExtResource("2_8t3bx")
+uv1_scale = Vector3(3, 3, 3)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_s1eqp"]
+size = Vector2(0.3, 0.1)
+
+[node name="Office" type="Node3D"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+material_override = SubResource("StandardMaterial3D_3rq78")
+mesh = SubResource("PlaneMesh_p5go4")
+
+[node name="Wall" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.15, 0.05, 0)
+material_override = SubResource("StandardMaterial3D_i5q6v")
+mesh = SubResource("PlaneMesh_ep8tc")
+
+[node name="Wall2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.15, 0.05, 0)
+material_override = SubResource("StandardMaterial3D_i5q6v")
+mesh = SubResource("PlaneMesh_ep8tc")
+
+[node name="Wall3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.05, -0.1)
+material_override = SubResource("StandardMaterial3D_lw2h8")
+mesh = SubResource("PlaneMesh_s1eqp")
+
+[node name="Wall4" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.05, 0.1)
+material_override = SubResource("StandardMaterial3D_lw2h8")
+mesh = SubResource("PlaneMesh_s1eqp")
+
+[node name="DeskProject" parent="." instance=ExtResource("3_fllo0")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.0168299, 0.0183473, -0.0393071)
+
+[node name="Office Chair" parent="." instance=ExtResource("4_e4dq1")]
+transform = Transform3D(-0.00794131, 0, 0.0237052, 0, 0.025, 0, -0.0237052, 0, -0.00794131, -0.0428861, 0, -0.0621186)
+
+[node name="DeskLamp" parent="." instance=ExtResource("5_uav6t")]
+transform = Transform3D(0.032046, 0, -0.0239386, 0, 0.04, 0, 0.0239386, 0, 0.032046, 0.0159515, 0.0523493, -0.0410655)
+object_file = "res://assets/devices/reading_light/reading_light.glb"
+device_name = "Reading light"
+
+[node name="Lamp" parent="." instance=ExtResource("5_uav6t")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0.130663, 0, -0.0823926)
+object_file = "res://assets/devices/lamp/lamp.glb"
+device_name = "Lamp"
+
+[node name="CeilingLight" parent="." instance=ExtResource("5_uav6t")]
+transform = Transform3D(0.04, 0, 0, 0, 0.04, 0, 0, 0, 0.04, 0, 0.075, 0)
+object_file = "res://assets/devices/ceiling_light/ceilingLamp.glb"
+device_name = "Ceiling light"

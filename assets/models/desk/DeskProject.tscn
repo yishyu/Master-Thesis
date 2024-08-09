@@ -1,0 +1,171 @@
+[gd_scene load_steps=14 format=4 uid="uid://8c5tmvd5mxg4"]
+
+[ext_resource type="Material" uid="uid://5vn075fbsp4a" path="res://assets/models/desk/desk_thingy.tres" id="1_klc5r"]
+[ext_resource type="Texture2D" uid="uid://cmfc00nvu7ouo" path="res://assets/textures/seamless-wood-planks-3-354038619.jpg" id="2_7t170"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72ti1"]
+transparency = 1
+albedo_color = Color(0.164706, 1, 1, 0.25098)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_quyke"]
+resource_name = "Desk"
+cull_mode = 2
+metallic = 1.0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_w1h12"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
+"name": "Desk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP7/AAAAAP///v8AAAAAAAAAAAAAAAD//wAAAAD//wAA/v8AAP/////+/wAA//8AAAAAAAD/////AAAAAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t04t8"]
+resource_name = "DeskProject_Cube_004"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2.00001),
+"attribute_data": PackedByteArray("qqpVVf////+qqqqqqqqpqgAAAABVVaqqVVVVVf//qqqqqv//AABUVVRVAABVVf7/VVVVVaqq//9UVf//VVWpqgAAVFUAAP7/VFWpqqqqqqpVVaqqAACpqlRVVFUAAKmq"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
+"material": SubResource("StandardMaterial3D_quyke"),
+"name": "Desk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("AAAAAP7///8AAAAA/v///wAAAAD+/1TVAAD///7///8AAP///v9U1QAA///+/1TVAAAAAAAA//8AAAAAAAD//wAAAAAAAFTVAAD//wAA//8AAP//AABU1QAA//8AAFTV//8AAP7//////wAA/v//////AAD+/1TV//////7//////////v9U1f/////+/1TV//8AAAAA/////wAAAAD/////AAAAAFTV/////wAA////////AABU1f////8AAFTV/3//f/9//z9VVaqq/3//f1TVqipVVaqq/z//v/9//z9VVaqq/z//v1TVqipVVaqq/3//f/9//z+pqlRV/3//f1TVqiqpqlRV/z//v/9//z+pqlRV/z//v1TVqiqpqlRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_w1h12")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3x5a8"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.25, -0.25, 0.02, 0.50001, 0.50001),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("CAAEAAkACAADAAQAAwABAAQAAwAAAAEABgADAAgABgAAAAMACQABAAcACQAEAAEABQAHAAIABQAJAAcAAgAIAAUAAgAGAAgAAAAHAAEAAAAGAAcACAAJAAUAAgAHAAYA"),
+"name": "Desk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("AAD9//3/AAD+//3//f8AAP7//f8AAAAAAAAAAP3/AAD//wAA/f8AAP//AAAAAAAAAAD9/4EKAAD+//3/gQoAAAAAAACBCgAA//8AAIEKAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_3byci"]
+resource_name = "DeskProject_Cube_003"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.25, -0.25, 0.02, 0.50001, 0.50001),
+"attribute_data": PackedByteArray("HgX/fz0KAAAAAP9/AAD/fx4FAAD/f/9/HgX/f////38AAP7/HgUAAD0KAAD/f/9/AAAAAFwPAAD/f///XA//f///////f///PQq+egAAvvoAAL76HgW+er76/389Cr56/3+++v9/vvpcD756vvr//w=="),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("FwANABoAFwAKAA0ACQADAAwACQAAAAMAFAALABkAFAACAAsAGwAFABYAGwAOAAUAEAAWAAcAEAAbABYACAAYABEACAATABgAAQAVAAQAAQASABUAFwAaAA8ABgAVABIA"),
+"material": SubResource("StandardMaterial3D_quyke"),
+"name": "Desk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAD9//3///8AAP3//f///wAA/f/9/1TV/v/9//3////+//3//f////7//f/9//+//v/9/wAA///+//3/AAD/v/7//f8AAE/pAAAAAP3///8AAAAA/f//vwAAAAD9/1TV//8AAP3//////wAA/f//v///AAD9//+///8AAAAA/7///wAAAAD/v///AAAAAE/pAAD9/4EK//8AAP3/gQpP6QAA/f+BClTV/v/9/4EK///+//3/gQr/vwAAAACBCv+/AAAAAIEKT+kAAAAAgQpU1f//AACBCv+///8AAIEK/7//f/9//3//v1RVqqr/f/9//3//v/9/AAD/f/+//38AACVL2bT/f/9/AAD/f1RVqqr/f/9/AAD/f/9/AAAAAP9//38AACVL2bT/f/+/JUvZtFRVqqr/f/+//38AAAAA/38lS9m0VFWqqgAA/3//fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_3x5a8")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tmxv5"]
+_surfaces = [{
+"aabb": AABB(-0.01, -0.25, -0.25, 0.02, 0.50001, 0.50001),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("CAAEAAkACAADAAQAAwABAAQAAwAAAAEABgADAAgABgAAAAMACQABAAcACQAEAAEABQAHAAIABQAJAAcAAgAIAAUAAgAGAAgAAAAHAAEAAAAGAAcACAAJAAUAAgAHAAYA"),
+"name": "Desk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("AAD9//3/AAD+//3//f8AAP7//f8AAAAAAAAAAP3/AAD//wAA/f8AAP//AAAAAAAAAAD9/4EKAAD+//3/gQoAAAAAAACBCgAA//8AAIEKAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_oqd34"]
+resource_name = "DeskProject_Cube_002"
+_surfaces = [{
+"aabb": AABB(-0.01, -0.25, -0.25, 0.02, 0.50001, 0.50001),
+"attribute_data": PackedByteArray("HgX/fz0KAAAAAP9/AAD/fx4FAAD/f/9/HgX/f////38AAP7/HgUAAD0KAAD/f/9/AAAAAFwPAAD/f///XA//f///////f///PQq+egAAvvoAAL76HgW+er76/389Cr56/3+++v9/vvpcD756vvr//w=="),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("FwANABoAFwAKAA0ACQADAAwACQAAAAMAFAALABkAFAACAAsAGwAFABYAGwAOAAUAEAAWAAcAEAAbABYACAAYABEACAATABgAAQAVAAQAAQASABUAFwAaAA8ABgAVABIA"),
+"material": SubResource("StandardMaterial3D_quyke"),
+"name": "Desk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAD9//3///8AAP3//f///wAA/f/9/1TV/v/9//3////+//3//f////7//f/9//+//v/9/wAA///+//3/AAD/v/7//f8AAE/pAAAAAP3///8AAAAA/f//vwAAAAD9/1TV//8AAP3//////wAA/f//v///AAD9//+///8AAAAA/7///wAAAAD/v///AAAAAE/pAAD9/4EK//8AAP3/gQpP6QAA/f+BClTV/v/9/4EK///+//3/gQr/vwAAAACBCv+/AAAAAIEKT+kAAAAAgQpU1f//AACBCv+///8AAIEK/7//f/9//3//v1RVqqr/f/9//3//v/9/AAD/f/+//38AACVL2bT/f/9/AAD/f1RVqqr/f/9/AAD/f/9/AAAAAP9//38AACVL2bT/f/+/JUvZtFRVqqr/f/+//38AAAAA/38lS9m0VFWqqgAA/3//fwAA")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_tmxv5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rddhh"]
+albedo_texture = ExtResource("2_7t170")
+uv1_scale = Vector3(2, 2, 2)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nuxwm"]
+_surfaces = [{
+"aabb": AABB(-0.75, -0.015, -0.25, 1.5, 0.03, 0.50001),
+"format": 34896613377,
+"index_count": 48,
+"index_data": PackedByteArray("CAAEAAkACAADAAQAAwABAAQAAwAAAAEABgADAAgABgAAAAMACQABAAcACQAEAAEABQAHAAIABQAJAAcAAgAIAAUAAgAGAAgAAAAHAAEAAAAGAAcACAAJAAUAAgAHAAYA"),
+"name": "Desk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 10,
+"vertex_data": PackedByteArray("AAAAAP3/AAAAAP///f8AAAAA//8AAAAA//8AAP3/AAD//////f8AAP////8AAAAAAAAAAIEKAAAAAP//gQoAAP//AACBCgAA/////4EKAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_fjqof"]
+resource_name = "DeskProject_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.75, -0.015, -0.25, 1.5, 0.03, 0.50001),
+"attribute_data": PackedByteArray("gfEAAMB4AAD//6qqwPgAAMB4AADA+KqqgfEAAAAAAADA+P//gfH//8B4/////6qqwPj//8B4///A+KqqgfH//wAA///A+FVV9AQAAPQEAAD//378jOwAAMD4fvz0BP//9AT/////1ViM7P//wPjVWA=="),
+"format": 34896613399,
+"index_count": 48,
+"index_data": PackedByteArray("GQAOABsAGQALAA4ACQADAAwACQAAAAMAEwAKABgAEwABAAoAGgAEABUAGgANAAQADwAVAAYADwAaABUABwAXABAABwASABcAAgAWAAUAAgAUABYAGQAbABEACAAWABQA"),
+"material": SubResource("StandardMaterial3D_quyke"),
+"name": "Desk",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 28,
+"vertex_data": PackedByteArray("AAAAAP3//78AAAAA/f9U1QAAAAD9/1TVAAD///3//78AAP///f9U1QAA///9/1TVAAD//wAAVNUAAP//AADY7gAA//8AAFTV//8AAP3//7///wAA/f9U1f//AAD9/1TV//////3//7///////f9U1f/////9/1TV/////wAAVNX/////AADY7v////8AAFTVAAAAAIEK2O4AAAAAgQpU1QAAAACBClTVAAD//4EKVNUAAP//gQpU1f//AACBCtju//8AAIEKVNX//wAAgQpU1f////+BClTV/////4EKVNX/////qipU1VRVqqr/////VNWqKlRVqqpU1aoqbTeRyFRVqqr/////qipU1aqqVFX/////VNWqKqqqVFVU1aoqbTeRyKqqVFVtN5HIqipU1VRVqqpU1aoqVFWqqm03kciqKlTVqqpUVVTVqiqqqlRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nuxwm")
+
+[node name="DeskProject" type="Node3D"]
+
+[node name="Cube_003" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.485, 0, 0, 0, 0.155438, 0, 0, 0, 0.0025, 0.000208683, 0.146138, 0.21796)
+material_override = SubResource("StandardMaterial3D_72ti1")
+mesh = SubResource("ArrayMesh_t04t8")
+skeleton = NodePath("")
+
+[node name="Cube_002" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 3.82137e-15, 0, -3.82137e-15, -1, 0, 0, 0, 1, -0.490817, 0.0781714, 0)
+material_override = ExtResource("1_klc5r")
+mesh = SubResource("ArrayMesh_3byci")
+skeleton = NodePath("")
+
+[node name="Cube_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.490398, 0.0715925, 0)
+material_override = ExtResource("1_klc5r")
+mesh = SubResource("ArrayMesh_oqd34")
+skeleton = NodePath("")
+
+[node name="Cube" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.666667, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.313977, 0)
+material_override = SubResource("StandardMaterial3D_rddhh")
+mesh = SubResource("ArrayMesh_fjqof")
+skeleton = NodePath("")

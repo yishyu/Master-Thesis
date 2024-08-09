@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://iymqpvr4js8t"]
+
+[ext_resource type="Texture2D" uid="uid://dikn0an2r0hwh" path="res://assets/textures/red_plaster_weathered_diff_1k.jpg" id="1_iwgqg"]
+
+[resource]
+albedo_texture = ExtResource("1_iwgqg")
+uv1_scale = Vector3(20, 20, 20)
+uv1_triplanar = true

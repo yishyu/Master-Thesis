@@ -1,0 +1,68 @@
+[gd_scene load_steps=13 format=3 uid="uid://eqi55771sjv3"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_0qm4p"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_ws0gx"]
+[ext_resource type="PackedScene" uid="uid://bsgjp0k27pynl" path="res://scenes/ui/room_info.tscn" id="3_3r441"]
+[ext_resource type="Shader" path="res://shaders/grab.gdshader" id="3_43ol1"]
+[ext_resource type="Script" path="res://scripts/pivot_lookat.gd" id="4_l68g5"]
+[ext_resource type="Script" path="res://scenes/instances/scripts/room.gd" id="4_wbhkw"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="5_nynjg"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="6_r1pw1"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="7_e5p72"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_67lk6"]
+size = Vector3(0.2, 0.2, 0.2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uqdjy"]
+render_priority = 0
+shader = ExtResource("3_43ol1")
+
+[sub_resource type="SphereMesh" id="SphereMesh_h6jx4"]
+material = SubResource("ShaderMaterial_uqdjy")
+radius = 0.05
+height = 0.1
+radial_segments = 8
+rings = 8
+
+[node name="PickableRoom" instance=ExtResource("1_0qm4p")]
+collision_layer = 65536
+collision_mask = 65536
+gravity_scale = 0.0
+release_mode = 1
+ranged_grab_method = 2
+second_hand_grab = 2
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_67lk6")
+
+[node name="XRToolsHighlightVisible" type="Node3D" parent="." index="1"]
+script = ExtResource("5_nynjg")
+
+[node name="HighlightMesh" type="MeshInstance3D" parent="XRToolsHighlightVisible" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+mesh = SubResource("SphereMesh_h6jx4")
+
+[node name="RootPoint" type="Node3D" parent="." index="2"]
+script = ExtResource("4_l68g5")
+
+[node name="pivot" type="Node3D" parent="RootPoint" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.3, 0)
+
+[node name="RoomMenu" parent="RootPoint/pivot" index="0" instance=ExtResource("2_ws0gx")]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+screen_size = Vector2(0.2, 0.2)
+collision_layer = 2097152
+scene = ExtResource("3_3r441")
+viewport_size = Vector2(200, 200)
+
+[node name="Room" type="Node3D" parent="RootPoint" index="1"]
+script = ExtResource("4_wbhkw")
+room_name = null
+room_id = null
+
+[node name="GrabPointHandLeft" parent="RootPoint" index="2" instance=ExtResource("6_r1pw1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.113918, 0, -0.0633688)
+
+[node name="GrabPointHandRight" parent="RootPoint" index="3" instance=ExtResource("7_e5p72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.113999, 0, -0.0633688)

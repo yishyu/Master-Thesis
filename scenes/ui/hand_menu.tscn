@@ -1,0 +1,91 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdsqomnkl5hya"]
+
+[ext_resource type="Script" path="res://scenes/ui/scripts/hand_menu.gd" id="1_8bq5t"]
+[ext_resource type="Theme" uid="uid://dow5nqcblqiil" path="res://themes/select_model.tres" id="2_s8h8x"]
+
+[node name="ModelSelectionMenu" type="CanvasLayer"]
+script = ExtResource("1_8bq5t")
+metadata/ObjectSelector3D = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_contents = true
+offset_right = 1500.0
+offset_bottom = 1200.0
+color = Color(0, 0, 0, 0.176471)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1500, 1200)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("2_s8h8x")
+tab_alignment = 1
+current_tab = 2
+
+[node name="Rooms" type="ScrollContainer" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Rooms"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MarginContainer/TabContainer/Rooms/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 26
+text = "+ Map room"
+
+[node name="Rooms" type="GridContainer" parent="MarginContainer/TabContainer/Rooms/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 3
+
+[node name="Rules" type="ScrollContainer" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 1
+
+[node name="Rules" type="Control" parent="MarginContainer/TabContainer/Rules"]
+unique_name_in_owner = true
+editor_description = "Shows all rooms. allowing to spawn them with rules linked to them (Maybe add filter in/out)"
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Devices" type="ScrollContainer" parent="MarginContainer/TabContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+metadata/_tab_index = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Devices"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="MarginContainer/TabContainer/Devices/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 26
+text = "+ find devices
+"
+
+[node name="Devices" type="GridContainer" parent="MarginContainer/TabContainer/Devices/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 3
+theme_override_constants/v_separation = 3
+columns = 3
